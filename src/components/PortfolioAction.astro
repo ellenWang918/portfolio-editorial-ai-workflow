@@ -1,0 +1,29 @@
+---
+type Props = {
+  href: string;
+  label: string;
+};
+
+const { href, label } = Astro.props;
+---
+
+<a class="portfolio-action" href={href}>
+  <span>{label}</span>
+  <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+</a>
+
+<style>
+  .portfolio-action {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-primary);
+    font: 500 var(--type-label) / 1.4 var(--font-mono);
+    letter-spacing: 0.045em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .portfolio-action:hover { color: var(--text-accent); }
+  .portfolio-action i { font-size: 0.78rem; }
+</style>

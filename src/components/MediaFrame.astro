@@ -1,0 +1,54 @@
+---
+type Props = {
+  label: string;
+  meta: string;
+  tone: "inverse" | "outline";
+};
+
+const { label, meta, tone } = Astro.props;
+---
+
+<figure class:list={["media-frame", `media-frame--${tone}`]}>
+  <div class="media-frame__stage"><span>{label}</span></div>
+  <figcaption>{meta}</figcaption>
+</figure>
+
+<style>
+  .media-frame {
+    margin: 0;
+    border: var(--border-1) solid var(--border-strong);
+  }
+
+  .media-frame__stage {
+    display: grid;
+    min-height: 225px;
+    place-items: center;
+  }
+
+  .media-frame span,
+  figcaption {
+    font: 500 var(--type-label) / 1.4 var(--font-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .media-frame span { color: var(--text-accent); }
+
+  figcaption {
+    padding: var(--space-3) var(--space-4);
+    border-top: var(--border-1) solid var(--border-default);
+    color: var(--text-secondary);
+  }
+
+  .media-frame--inverse {
+    border-color: var(--surface-inverse);
+  }
+
+  .media-frame--inverse .media-frame__stage {
+    background: var(--surface-inverse);
+  }
+
+  @media (max-width: 767px) {
+    .media-frame { display: none; }
+  }
+</style>

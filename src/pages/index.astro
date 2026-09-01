@@ -1,0 +1,451 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import Metric from "../components/Metric.astro";
+import PortfolioAction from "../components/PortfolioAction.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SystemLabel from "../components/SystemLabel.astro";
+import { projects } from "../content/projects";
+---
+
+<SiteLayout
+  title="Ellen Wang — Product Designer"
+  description="Product Designer translating enterprise workflows, research evidence and design systems into clear, scalable experiences."
+>
+  <header class="topbar">
+    <a class="identity" href="#top">Ellen Wang / <span>Portfolio</span><b>Product Designer</b></a>
+    <span class="topbar__focus">Product Design / Systems / Research</span>
+    <span class="topbar__location">Australia / AEST</span>
+    <details class="mobile-menu">
+      <summary>Menu / 03</summary>
+      <nav aria-label="Mobile navigation">
+        <a href="#selected-work">01 / Selected work</a>
+        <a href="#about">02 / About</a>
+        <a href="#contact">03 / Contact</a>
+      </nav>
+    </details>
+  </header>
+
+  <div class="page" id="top">
+    <aside class="sidebar" aria-label="Portfolio navigation">
+      <div class="sidebar__brand">
+        <span>Ellen<br />Wang.</span>
+        <small>Product Designer<br />UX/UI · Systems · Research</small>
+      </div>
+      <nav>
+        <a class="active" href="#selected-work"><span>01.</span> ./selected_work</a>
+        <a href="#about"><span>02.</span> ./about</a>
+        <a href="#about"><span>03.</span> ./experience</a>
+        <a href="#contact"><span>04.</span> ./contact</a>
+      </nav>
+      <div class="sidebar__status">
+        <b>System status</b>
+        <span><i></i> Available for opportunities</span>
+        <small>Australia / AEST</small>
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <section class="hero">
+        <SystemLabel tone="accent">Profile_loaded / Product_design</SystemLabel>
+        <div class="hero__mobile-label"><SystemLabel tone="accent">Available / Brisbane · AU</SystemLabel></div>
+        <h1 class="hero__desktop-title">Designing clarity<br /><em>for complex systems.</em></h1>
+        <div class="hero__mobile-title" aria-hidden="true">
+          <span>Ellen Wang</span>
+          <h1><em>Product Designer<br />for complex<br />enterprise<br />systems.</em></h1>
+        </div>
+        <p>
+          I turn fragmented workflows, research evidence, and technical constraints into clear, scalable product experiences.
+        </p>
+        <div class="metrics" aria-label="Selected experience indicators">
+          <Metric value="25+" label="Reusable components" />
+          <Metric value="16" label="Research interviews" />
+          <Metric value="6,000+" label="Monthly active users" />
+        </div>
+        <PortfolioAction href="#selected-work" label="Explore selected work" />
+      </section>
+
+      <section class="work" id="selected-work">
+        <header class="section-heading">
+          <div class="section-heading__desktop-label desktop-only"><SystemLabel tone="accent">/** Selected_work / Verified_evidence **/</SystemLabel></div>
+          <div class="section-heading__mobile-label mobile-only"><SystemLabel tone="accent">/** Index / Selected work **/</SystemLabel></div>
+          <h2>Selected work</h2>
+          <p class="section-heading__desktop-description desktop-only">Enterprise product stories where research evidence, system thinking and delivery constraints shaped the outcome.</p>
+          <p class="section-heading__mobile-description mobile-only">Three ways I bring clarity to complex systems.</p>
+        </header>
+        <div class="project-list">
+          {projects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="about__heading">
+          <SystemLabel tone="accent">/** About / Practice **/</SystemLabel>
+          <h2>Designing across evidence, systems, and delivery</h2>
+          <p>A product designer with an earlier full-stack development background.</p>
+        </div>
+        <div class="about__content">
+          <div>
+            <p>
+              My strongest work connects how people operate, how teams make decisions, and how products are implemented. I work across research, interaction design, service design, design systems, and cross-functional delivery.
+            </p>
+            <PortfolioAction href="#contact" label="Read about & experience" />
+          </div>
+          <dl>
+            <div><dt>Role</dt><dd>Product Designer</dd></div>
+            <div><dt>Focus</dt><dd>UX/UI · Design Systems · Research</dd></div>
+            <div><dt>Location</dt><dd>Australia · AEST</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <footer id="contact">
+        <SystemLabel tone="inverse">Contact_channel / Open</SystemLabel>
+        <h2>Let’s discuss the next complex problem.</h2>
+        <p>Contact details available in resume.</p>
+        <div class="status-bar">
+          <span><i></i> Available for product design opportunities</span>
+          <span>Australia / AEST</span>
+        </div>
+      </footer>
+    </main>
+  </div>
+</SiteLayout>
+
+<style>
+  .topbar {
+    position: relative;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 232px 1fr auto;
+    min-height: 48px;
+    border-bottom: var(--border-1) solid var(--border-subtle);
+    font: 500 var(--type-label) / 1.4 var(--font-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .topbar > * { align-self: center; }
+
+  .identity {
+    padding-left: var(--space-5);
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .identity b { display: none; }
+  .topbar__focus { justify-self: center; color: var(--text-accent); }
+  .topbar__location { padding-right: var(--space-5); }
+  .mobile-menu { display: none; }
+
+  .page { display: grid; grid-template-columns: 232px 1fr; }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: var(--space-10) var(--space-5) var(--space-5);
+    border-right: var(--border-1) solid var(--border-subtle);
+  }
+
+  .sidebar__brand > span {
+    display: block;
+    font: 400 2.5rem / 0.9 var(--font-display);
+  }
+
+  .sidebar__brand small {
+    display: block;
+    margin-top: var(--space-4);
+    font: 500 var(--type-label) / 1.5 var(--font-mono);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .sidebar nav {
+    display: grid;
+    gap: var(--space-5);
+    margin: auto 0;
+  }
+
+  .sidebar nav a {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    color: var(--text-secondary);
+    font: 400 var(--type-label) / 1.4 var(--font-mono);
+    text-decoration: none;
+  }
+
+  .sidebar nav a.active { color: var(--text-accent); }
+
+  .sidebar__status {
+    display: grid;
+    gap: var(--space-2);
+    font: 500 0.62rem / 1.4 var(--font-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .sidebar__status b { color: var(--text-accent); }
+  .sidebar__status i,
+  .status-bar i {
+    display: inline-block;
+    width: 0.45rem;
+    height: 0.45rem;
+    margin-right: var(--space-2);
+    border-radius: 50%;
+    background: var(--status-active);
+  }
+
+  main { min-width: 0; }
+
+  .hero,
+  .work {
+    width: min(100% - 8rem, 1024px);
+    margin: 0 auto;
+  }
+
+  .hero { padding: 4rem 0 7rem; }
+
+  .hero__desktop-title {
+    margin: var(--space-6) 0 var(--space-8);
+    font: 400 4.5rem / 1.055 var(--font-display);
+    letter-spacing: -0.014em;
+  }
+
+  h1 em {
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.07;
+    letter-spacing: -0.009em;
+  }
+  .hero__mobile-label,
+  .hero__mobile-title { display: none; }
+
+  .hero > p {
+    max-width: 48rem;
+    margin: 0 0 var(--space-8);
+    font-size: 1.125rem;
+    line-height: 1.555;
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-bottom: var(--space-10);
+  }
+
+  .work { padding-bottom: var(--space-16); }
+
+  .section-heading {
+    padding-bottom: var(--space-5);
+    border-bottom: var(--border-1) solid var(--border-subtle);
+  }
+
+  .section-heading h2,
+  .about h2,
+  footer h2 {
+    margin: var(--space-4) 0 var(--space-3);
+    font: 400 3.5rem / 1.07 var(--font-display);
+    letter-spacing: -0.009em;
+  }
+
+  .section-heading p,
+  .about__heading > p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+
+  .section-heading__mobile-label,
+  .section-heading__mobile-description { display: none; }
+
+  .project-list {
+    display: grid;
+    gap: var(--space-10);
+    padding-top: var(--space-10);
+  }
+
+  .about {
+    padding: var(--space-12) max(4rem, calc((100% - 1024px) / 2));
+    background: var(--surface-subtle);
+  }
+
+  .about__heading {
+    padding: var(--space-5);
+    background: var(--surface-canvas);
+  }
+
+  .about__heading h2 { max-width: 60rem; }
+
+  .about__content {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: var(--space-12);
+    padding-top: var(--space-10);
+  }
+
+  .about__content > div > p {
+    max-width: 32rem;
+    margin: 0 0 var(--space-6);
+    font-size: 1.12rem;
+    line-height: 1.55;
+  }
+
+  dl { display: grid; gap: var(--space-5); margin: 0; }
+  dl div { padding: var(--space-4); background: var(--surface-canvas); }
+  dt {
+    margin-bottom: var(--space-2);
+    color: var(--text-accent);
+    font: 500 var(--type-label) / 1.4 var(--font-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  dd { margin: 0; }
+
+  footer {
+    padding: var(--space-12) max(4rem, calc((100% - 1024px) / 2)) var(--space-8);
+    color: var(--text-inverse);
+    background: var(--surface-inverse);
+  }
+
+  footer h2 { max-width: 54rem; }
+  footer > p { color: var(--text-inverse-muted); font-size: 1rem; }
+
+  .status-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-10);
+    padding: var(--space-4);
+    border: var(--border-1) solid var(--border-default);
+    color: var(--text-inverse-muted);
+    font: 500 var(--type-label) / 1.4 var(--font-mono);
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 767px) {
+    .topbar {
+      position: sticky;
+      top: 0;
+      grid-template-columns: 1fr auto;
+      min-height: 48px;
+      padding: 0 var(--space-5);
+      background: color-mix(in srgb, var(--surface-canvas) 95%, transparent);
+      backdrop-filter: blur(10px);
+    }
+
+    .identity { padding: 0; }
+    .identity span { display: none; }
+    .identity b { display: inline; font-weight: 500; }
+    .topbar__focus,
+    .topbar__location { display: none; }
+
+    .mobile-menu { display: block; position: relative; color: var(--text-accent); }
+    .mobile-menu summary { cursor: pointer; list-style: none; }
+    .mobile-menu summary::-webkit-details-marker { display: none; }
+    .mobile-menu nav {
+      position: absolute;
+      top: 2rem;
+      right: 0;
+      display: grid;
+      width: 15rem;
+      border: var(--border-1) solid var(--border-strong);
+      background: var(--surface-canvas);
+      box-shadow: 0 10px 30px rgb(27 28 27 / 12%);
+    }
+    .mobile-menu nav a {
+      padding: var(--space-4);
+      border-bottom: var(--border-1) solid var(--border-subtle);
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .page { display: block; }
+    .sidebar { display: none; }
+    .hero,
+    .work { width: 100%; }
+
+    .hero { padding: 4.25rem var(--space-5) 3rem; }
+    .hero > :global(.system-label:first-child),
+    .hero__desktop-title,
+    .metrics { display: none; }
+    .hero__mobile-label { display: inline-flex; }
+    .hero__mobile-title { display: block; }
+    .hero__mobile-title > span {
+      display: block;
+      margin: var(--space-6) 0 var(--space-5);
+      font: 400 2.45rem / 1 var(--font-display);
+    }
+    .hero__mobile-title h1 {
+      margin: 0 0 var(--space-5);
+      font: 400 3.25rem / 0.94 var(--font-display);
+      letter-spacing: -0.04em;
+    }
+    .hero__mobile-title h1 em {
+      font-size: 3.5rem;
+      line-height: 1.071;
+      letter-spacing: -2px;
+    }
+    .hero > p {
+      max-width: 21rem;
+      margin-bottom: var(--space-6);
+      font-size: 1.1rem;
+    }
+
+    .work {
+      padding: var(--space-8) var(--space-5) var(--space-10);
+      background: var(--surface-subtle);
+    }
+    .section-heading {
+      padding: var(--space-3) 0 var(--space-5);
+      background: var(--surface-canvas);
+    }
+    .section-heading__desktop-label,
+    .section-heading__desktop-description { display: none; }
+    .section-heading__mobile-label,
+    .section-heading__mobile-description { display: block; }
+    .section-heading h2 {
+      margin-top: var(--space-5);
+      font-size: 4rem;
+    }
+    .section-heading p {
+      padding-bottom: var(--space-2);
+      font-size: 1rem;
+    }
+    .project-list { gap: var(--space-5); padding-top: var(--space-5); }
+
+    .about {
+      padding: var(--space-12) var(--space-5) var(--space-10);
+      background: var(--surface-canvas);
+    }
+    .about__heading { padding: 0 0 var(--space-8); border-bottom: var(--border-1) solid var(--border-subtle); }
+    .about__heading h2 { margin-top: var(--space-5); font-size: 3.7rem; }
+    .about__heading > p { margin-top: var(--space-6); }
+    .about__content { display: block; padding-top: var(--space-6); }
+    .about__content > div > p { font-size: 1rem; }
+    .about__content :global(.portfolio-action),
+    dl { display: none; }
+
+    footer {
+      padding: var(--space-6) var(--space-5) var(--space-4);
+    }
+    footer > :global(.system-label),
+    footer h2,
+    footer > p { display: none; }
+    .status-bar {
+      gap: var(--space-8);
+      margin: 0;
+      padding: 0;
+      border: 0;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1100px) {
+    .hero,
+    .work { width: calc(100% - 4rem); }
+    .about,
+    footer { padding-right: 2rem; padding-left: 2rem; }
+  }
+</style>

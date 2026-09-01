@@ -1,0 +1,103 @@
+---
+import type { Project } from "../content/projects";
+import MediaFrame from "./MediaFrame.astro";
+import PortfolioAction from "./PortfolioAction.astro";
+
+type Props = { project: Project };
+const { project } = Astro.props;
+---
+
+<article class="project" id={project.id}>
+  <MediaFrame label={project.mediaLabel} meta={project.mediaMeta} tone={project.mediaTone} />
+  <div class="project__body">
+    <div class="project__meta">
+      <span>{project.index}</span>
+      <span>{project.year}</span>
+    </div>
+    <h3>{project.title}</h3>
+    <p>{project.summary}</p>
+    <ul aria-label="Project focus">
+      {project.tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+    <PortfolioAction href={project.href} label="View case study" />
+  </div>
+</article>
+
+<style>
+  .project {
+    padding-bottom: var(--space-12);
+    border-bottom: var(--border-1) solid var(--border-subtle);
+  }
+
+  .project__body { padding-top: var(--space-4); }
+
+  .project__meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-accent);
+    font: 500 var(--type-label) / 1.4 var(--font-mono);
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+  }
+
+  .project__meta span:last-child { color: var(--text-secondary); }
+
+  h3 {
+    margin: var(--space-3) 0 var(--space-2);
+    font: 400 1.875rem / 1.2 var(--font-display);
+  }
+
+  p {
+    max-width: 70rem;
+    margin: 0 0 var(--space-4);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    font: 500 var(--type-label) / 1.4 var(--font-mono);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  li:not(:last-child)::after {
+    margin-left: var(--space-2);
+    color: var(--text-secondary);
+    content: "/";
+  }
+
+  @media (max-width: 767px) {
+    .project {
+      padding: var(--space-4) 0 var(--space-6);
+      background: var(--surface-canvas);
+    }
+
+    .project__body { padding: 0; }
+
+    h3 {
+      max-width: 18rem;
+      margin-top: var(--space-4);
+      font-size: 2.55rem;
+      line-height: 0.98;
+    }
+
+    p { font-size: 1rem; }
+
+    ul {
+      display: block;
+      margin-bottom: var(--space-5);
+    }
+
+    li { display: inline; }
+  }
+</style>

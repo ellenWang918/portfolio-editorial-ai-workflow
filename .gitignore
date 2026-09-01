@@ -1,0 +1,29 @@
+node_modules/
+dist/
+.astro/
+.tmp/
+
+# Private source and handover material
+01_public_portfolio_sanitised.md
+02_offline_presentation_projects.md
+03_resume_two_versions.md
+HANDOVER.md
+PORTFOLIO_EDITORIAL_HANDOVER.md
+PORTFOLIO_IMPLEMENTATION_HANDOFF.md
+*_HANDOVER.md
+portfolio-editorial-workflow-state.json
+design-qa.md
+
+# Offline decks and generated working assets
+*.pptx
+*.inspect.ndjson
+assets/
+Ellen_Wang_Offline_Portfolio_Walkthrough/
+
+# Local visual review artifacts
+*-review.png
+*-final.png
+*-comparison.png
+*-mid.png
+homepage-implementation-*.png
+homepage-mobile-top.png

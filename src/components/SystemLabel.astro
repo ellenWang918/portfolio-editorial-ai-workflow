@@ -1,0 +1,24 @@
+---
+type Props = {
+  tone?: "default" | "accent" | "inverse";
+  class?: string;
+};
+
+const { tone = "default", class: className } = Astro.props;
+---
+
+<span class:list={["system-label", `system-label--${tone}`, className]}><slot /></span>
+
+<style>
+  .system-label {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-secondary);
+    font: 500 var(--type-label) / 1.4 var(--font-mono);
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+  }
+
+  .system-label--accent { color: var(--text-accent); }
+  .system-label--inverse { color: var(--text-inverse-muted); }
+</style>

@@ -1,0 +1,17 @@
+{
+  "name": "ellen-wang-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "latest",
+    "@fontsource/ibm-plex-sans": "latest",
+    "@fontsource/instrument-serif": "latest",
+    "@phosphor-icons/web": "latest",
+    "astro": "latest"
+  }
+}
