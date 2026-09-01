@@ -1,56 +1,56 @@
 # Editorial Portfolio × Codex Workflow
 
-这是一个由 Codex 辅助完成的 Product Designer 作品集实验。项目不只关注最终网页，也记录了从视觉方向、信息架构、设计系统、Figma 页面到响应式前端实现的完整过程，以及长流程中出现的 token 消耗问题。
+This is a Product Designer portfolio experiment created with assistance from Codex. The project focuses not only on the final website, but also documents the complete process—from visual direction, information architecture, and design systems to Figma screens and responsive frontend implementation—along with the token-consumption problem encountered during a long, tool-intensive workflow.
 
-## 项目目标
+## Project Goal
 
-项目的目标是建立一个兼具编辑感与系统感的个人作品集，使招聘者能够快速理解设计师的定位、代表项目与思考方式，同时保证内容公开安全、设计规则统一，并能够从 Figma 稳定转换为生产代码。
+The goal was to create an editorial yet systematic personal portfolio that helps recruiters quickly understand the designer's positioning, selected work, and way of thinking. The project also needed to keep all published content safe, maintain consistent design rules, and support a reliable transition from Figma to production code.
 
-最终方向为 **Warm Technical Editorial**：
+The final direction is **Warm Technical Editorial**:
 
-- Instrument Serif 承担编辑感与表达性标题；
-- IBM Plex Sans 保证正文可读性；
-- IBM Plex Mono 用于导航、编号、状态与系统语言；
-- 暖纸色背景、近黑文本、锈红强调色与琥珀状态色；
-- 通过网格、细分隔线和留白建立层级，避免过度卡片化；
-- 对企业项目名称、系统名称与截图进行公开化处理。
+- Instrument Serif provides editorial character and expressive headings.
+- IBM Plex Sans keeps body content highly readable.
+- IBM Plex Mono is used for navigation, numbering, status, and system language.
+- A warm paper background is paired with near-black text, rust-red accents, and amber status colours.
+- Grids, fine dividers, and deliberate whitespace establish hierarchy without excessive card-based UI.
+- Company names, system names, and screenshots are sanitised for public presentation.
 
-当前代码实现包含响应式首页，支持桌面与移动布局、移动菜单、锚点导航、键盘焦点、减少动态效果设置和语义化内容结构。
+The current implementation includes a responsive homepage with desktop and mobile layouts, a mobile menu, anchor navigation, keyboard focus states, reduced-motion support, and semantic content structure.
 
-## 技术栈
+## Technology Stack
 
 - Astro
 - TypeScript
-- 原生 CSS 与 semantic design tokens
-- 自托管 Instrument Serif、IBM Plex Sans、IBM Plex Mono
+- Native CSS with semantic design tokens
+- Self-hosted Instrument Serif, IBM Plex Sans, and IBM Plex Mono
 - Phosphor Icons
 
-## 使用的 Skills
+## Skills Used
 
-| Skill | 用途 |
+| Skill | Purpose |
 |---|---|
-| `portfolio-editorial-ai-workflow` | 主工作流；定义 Visual DNA → IA → Design System → Homepage → Case Study → Responsive → Implementation 的审批门槛。 |
-| `figma-use` | 在 Figma 中创建和维护变量、文本样式、组件、页面与响应式设计。 |
-| `product-design:image-to-code` | 将已批准的桌面与移动视觉稿实现为响应式前端。 |
-| `browser:control-in-app-browser` | 在真实浏览器中验证页面、导航、移动菜单、响应式断点和控制台错误。 |
-| `openai-docs` | 核对长上下文、reasoning tokens 与 compaction 等 token 管理信息。 |
+| `portfolio-editorial-ai-workflow` | The primary gated workflow, defining approval points across Visual DNA → IA → Design System → Homepage → Case Study → Responsive → Implementation. |
+| `figma-use` | Created and maintained variables, text styles, components, pages, and responsive layouts in Figma. |
+| `product-design:image-to-code` | Implemented approved desktop and mobile visual designs as a responsive frontend. |
+| `browser:control-in-app-browser` | Validated the page, navigation, mobile menu, responsive breakpoints, and console behaviour in a real browser. |
+| `openai-docs` | Verified guidance related to long context, reasoning tokens, and compaction. |
 
-## Phase 1–10
+## Phases 1–10
 
-| Phase | 阶段 | 目标与产出 |
+| Phase | Stage | Goal and Deliverable |
 |---:|---|---|
-| 1 | Visual DNA | 分析参考图的气质、字体角色、颜色、网格、留白、系统语言以及应该借用或避免的模式。 |
-| 2 | Information Architecture | 确定首页、Selected Work、About、Contact 和案例页的信息层级，并建立 Evidence → Insight → Decision → Design → Outcome 的叙事结构。 |
-| 3 | Foundations | 在 Figma 中建立语义色彩、字体样式、间距、圆角、边框和桌面网格，形成最小设计系统。 |
-| 4 | Core Components | 创建 System Label、Action、Navigation Item、Metadata、Metric、Section Header、Status Bar 和 Media Frame 等作品集组件。 |
-| 5 | Homepage V0.1 | 使用真实且公开安全的内容完成桌面首页，验证设计系统能否形成一致的页面语言。 |
-| 6 | Case Study Template | 建立可复用的案例模板，覆盖 Context、Discovery、Definition、Design、System、Outcome 和 Reflection。 |
-| 7 | Real Case Study | 将 Enterprise Travel Platform 的真实材料映射进模板，区分保留、强化、删除、缺失证据和保密内容。 |
-| 8 | Responsive Validation | 将桌面层级重新组织为移动布局，而不是简单缩小；完成移动首页和案例页关键区段。 |
-| 9 | Implementation Handoff | 把 Figma tokens 映射为 CSS variables，把组件映射为代码组件，并完成 Astro 响应式首页与浏览器 QA。 |
-| 10 | Scale | 复用已批准的系统扩展剩余案例、About、Contact、实验项目和生产级完善。本仓库目前停在 Phase 9 首页实现。 |
+| 1 | Visual DNA | Analyse the references for mood, typographic roles, colour, grid, spacing, system language, and patterns to adopt or avoid. |
+| 2 | Information Architecture | Define the hierarchy of the homepage, Selected Work, About, Contact, and case-study pages, using an Evidence → Insight → Decision → Design → Outcome narrative. |
+| 3 | Foundations | Establish semantic colours, typography, spacing, radii, borders, and a desktop grid in Figma to form a minimal design system. |
+| 4 | Core Components | Create portfolio components including System Label, Action, Navigation Item, Metadata, Metric, Section Header, Status Bar, and Media Frame. |
+| 5 | Homepage V0.1 | Build the desktop homepage with real, public-safe content and verify that the design system produces a coherent visual language. |
+| 6 | Case Study Template | Create a reusable case-study template covering Context, Discovery, Definition, Design, System, Outcome, and Reflection. |
+| 7 | Real Case Study | Map real Enterprise Travel Platform material into the template, distinguishing content to retain, strengthen, remove, source, or keep confidential. |
+| 8 | Responsive Validation | Recompose the desktop hierarchy for mobile instead of simply scaling it down, completing key homepage and case-study sections. |
+| 9 | Implementation Handoff | Map Figma tokens to CSS variables and design components to code components, then complete the responsive Astro homepage and browser QA. |
+| 10 | Scale | Extend the approved system across the remaining case studies, About, Contact, experiments, and production refinements. This repository currently reaches the Phase 9 homepage implementation. |
 
-## 原始流程图
+## Original Workflow
 
 ```mermaid
 flowchart TD
@@ -71,48 +71,48 @@ flowchart TD
     P9 -. approval .-> P10
 ```
 
-每个阶段都需要检查、生成、截图、说明和人工批准。这提高了可控性，但也成为 token 成本的重要来源。
+Every phase required inspection, generation, screenshots, explanation, and human approval. This improved control, but also became a major source of token cost.
 
-## 遇到的问题：token 消耗量巨大
+## Problem: Extremely High Token Consumption
 
-项目可以成功推进，但 token 使用量远高于预期。即使在中途减少输出、限制检查范围并使用状态文件后，整体消耗仍然很大。
+The project progressed successfully, but token usage was far higher than expected. Even after reducing output, narrowing inspection scope, and introducing a workflow-state file, total consumption remained substantial.
 
-### 问题产生的原因
+### Why It Happened
 
-1. **阶段数量过多**：十个阶段意味着十轮上下文延续、交付说明、截图和批准，早期信息会不断进入后续上下文。
-2. **过早直接操作 Figma**：Codex 在确定整体方向之前就需要读取页面、查找 node ID、检查 variables、创建组件、截图并反复修正。
-3. **Figma 操作本身上下文密集**：每次写入都依赖已有节点、组件属性、变量 ID、字体和布局信息，工具返回内容会快速累积。
-4. **审批门槛过细**：阶段门槛可以降低设计漂移，但每次停顿与恢复都需要重新建立当前状态。
-5. **视觉 QA 成本高**：桌面、移动、案例页和实现稿都需要截图、结构检查、隐私检查与对照修复。
-6. **同一事实被多种载体重复表达**：Figma、PNG、handover、状态 JSON、聊天历史和代码中保存了相似信息。
-7. **长时间工具调用**：官方 OpenAI 文档也把多步骤、工具密集型工作列为长上下文与 compaction 的典型场景，并建议在重要里程碑后压缩上下文，而不是每一轮都保留全部细节。[OpenAI model guidance](https://developers.openai.com/api/docs/guides/latest-model)
+1. **Too many phases:** Ten phases created ten rounds of context continuation, delivery notes, screenshots, and approvals. Information from early stages continued to accumulate in later contexts.
+2. **Figma was introduced too early:** Before the overall direction was settled, Codex had to read pages, locate node IDs, inspect variables, create components, capture screenshots, and make repeated corrections.
+3. **Figma operations are context-intensive:** Each write depends on existing nodes, component properties, variable IDs, fonts, and layout information, so tool output grows quickly.
+4. **Approval gates were too granular:** Gates reduced design drift, but every pause and continuation required the current state to be reconstructed.
+5. **Visual QA was expensive:** Desktop, mobile, case-study, and implementation views all required screenshots, structural checks, privacy checks, and comparison-based fixes.
+6. **The same facts appeared in multiple formats:** Figma, PNG exports, handover documents, state JSON, chat history, and code repeated overlapping information.
+7. **Long-running tool use accumulated context:** Official OpenAI guidance identifies multi-step, tool-heavy work as a typical long-context and compaction scenario, and recommends compacting at major milestones instead of preserving every detail in every turn. See [OpenAI model guidance](https://developers.openai.com/api/docs/guides/latest-model).
 
-## 已采用的解决方案
+## Solutions Applied
 
-- 用一个紧凑的 workflow state JSON 保存页面、节点、组件与批准状态；
-- 每次只读取当前阶段需要的文件和节点；
-- 限制工具输出，不反复导出整个 Figma 文件结构；
-- 将视觉检查缩小到关键 frame 和关键 breakpoint；
-- 使用 semantic tokens，避免在设计与代码之间重新解释颜色和间距；
-- 在里程碑后生成 handover，让后续任务从精简状态继续；
-- 降低进度说明的篇幅，并把浏览器验证集中在最终实现阶段。
+- Stored pages, node IDs, components, and approval status in a compact workflow-state JSON file.
+- Read only the files and nodes required for the active phase.
+- Limited tool output instead of repeatedly exporting the entire Figma structure.
+- Restricted visual inspection to critical frames and breakpoints.
+- Used semantic tokens to avoid reinterpreting colour and spacing between design and code.
+- Produced handover documents at milestones so later work could continue from a compact state.
+- Shortened progress updates and concentrated browser validation in the final implementation phase.
 
-这些方法减少了浪费，但没有改变根本结构：流程仍然包含太多阶段，且 Figma 仍然承担了早期探索、规则定义和最终制作三种职责。
+These changes reduced waste, but did not solve the structural issue: the workflow still contained too many phases, while Figma continued to serve three roles at once—early exploration, rules database, and final production surface.
 
 ## Reflection
 
-改进之后，token 消耗仍然很大。进一步搜索与复盘后，我认为更优的做法不是继续压缩每一个 Phase，而是重新设计流程本身。
+Token consumption remained high even after these improvements. Further research and reflection suggested that the better solution was not to keep compressing each phase, but to redesign the workflow itself.
 
-更合理的方式是：
+A more efficient approach would be to:
 
-1. **减少 Phase 数量**，把相互依赖的阶段合并；
-2. **不要一开始就让 Codex 直接操作 Figma**；
-3. 先生成一份紧凑、可审查的 `design.md`，用文字和少量图像确定视觉方向、内容层级、tokens、组件规则与响应式原则；
-4. 用户批准 `design.md` 后，再让 Codex 基于这一份单一事实来源完成关键页面设计；
-5. 只在需要人工视觉确认时进入 Figma，减少节点读取、变量查询、组件搭建和重复截图；
-6. 最后从同一份 `design.md` 生成代码，避免 Figma 与代码之间再次进行完整解释。
+1. **Reduce the number of phases** by combining closely dependent activities.
+2. **Avoid asking Codex to operate Figma at the beginning.**
+3. First create a compact, reviewable `design.md` that defines the visual direction, content hierarchy, tokens, component rules, and responsive principles with text and a small number of images.
+4. After the user approves `design.md`, use it as the single source of truth for producing the key screens.
+5. Enter Figma only when human visual review is valuable, reducing node inspection, variable lookups, component construction, and repeated screenshots.
+6. Generate the code from the same `design.md`, avoiding another complete interpretation step between Figma and implementation.
 
-## 建议的新流程
+## Proposed New Workflow
 
 ```mermaid
 flowchart LR
@@ -123,21 +123,21 @@ flowchart LR
     E --> F[5. QA + Scale]
 ```
 
-新流程将原来的十个阶段压缩为五个阶段，并把 `design.md` 作为设计与代码共享的单一事实来源。Figma 从“探索工具 + 规则数据库 + 页面生成器”收敛为关键视觉审查界面。
+The revised workflow compresses the original ten phases into five and makes `design.md` the shared source of truth for design and code. Figma is narrowed from an exploration tool, rules database, and page generator into a focused visual-review surface.
 
-## 本地运行
+## Run Locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-生产构建：
+Production build:
 
 ```bash
 npm run build
 ```
 
-## 隐私说明
+## Privacy Note
 
-仓库仅包含公开安全的项目名称、概括性成果与前端实现。原始雇主、客户、内部系统名称、项目代码、工作链接、敏感截图、简历和离线演示文件均未包含在公开仓库中。
+This repository contains only public-safe project names, high-level outcomes, and the frontend implementation. Original employer and client names, internal system names, project codes, work links, sensitive screenshots, résumés, and offline presentation files are excluded from the public repository.
