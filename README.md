@@ -14,6 +14,7 @@ The final direction is **Warm Technical Editorial**:
 - A warm paper background is paired with near-black text, rust-red accents, and amber status colours.
 - Grids, fine dividers, and deliberate whitespace establish hierarchy without excessive card-based UI.
 - Company names, system names, and screenshots are sanitised for public presentation.
+- Figma [link]([https://www.google.com](https://www.figma.com/design/22FW0RNCPZkGPtH8iIBLd2/Portfolio?node-id=0-1&t=stUGPE3vZ9OWjLt0-1))
 
 The current implementation includes a responsive homepage with desktop and mobile layouts, a mobile menu, anchor navigation, keyboard focus states, reduced-motion support, and semantic content structure.
 
