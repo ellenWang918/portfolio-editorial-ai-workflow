@@ -19,7 +19,11 @@ const { project } = Astro.props;
     <ul aria-label="Project focus">
       {project.tags.map((tag) => <li>{tag}</li>)}
     </ul>
-    <PortfolioAction href={project.href} label="View case study" />
+    {project.href ? (
+      <PortfolioAction href={project.href} label="View case study" />
+    ) : (
+      <span class="project__availability">Case study coming soon</span>
+    )}
   </div>
 </article>
 
@@ -74,6 +78,13 @@ const { project } = Astro.props;
     margin-left: var(--space-2);
     color: var(--text-secondary);
     content: "/";
+  }
+
+  .project__availability {
+    color: var(--text-secondary);
+    font: 500 var(--type-label) / 1.4 var(--font-mono);
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
   }
 
   @media (max-width: 767px) {

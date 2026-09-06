@@ -8,7 +8,7 @@ export type Project = {
   mediaLabel: string;
   mediaMeta: string;
   mediaTone: "inverse" | "outline";
-  href: string;
+  href?: string;
 };
 
 export const projects: Project[] = [
@@ -36,7 +36,6 @@ export const projects: Project[] = [
     mediaLabel: "CONTINUOUS IMPROVEMENT / ACTION-BOARD HYPOTHESIS",
     mediaMeta: "OBSERVATION / FEASIBILITY / USABILITY",
     mediaTone: "outline",
-    href: "#project-02",
   },
   {
     id: "project-03",
@@ -49,6 +48,5 @@ export const projects: Project[] = [
     mediaLabel: "DIGITAL CHECKLIST / CROSS-FUNCTIONAL BLUEPRINT",
     mediaMeta: "INTERVIEWS / SERVICE BLUEPRINT / SYSTEM MAP",
     mediaTone: "outline",
-    href: "#project-03",
   },
 ];
