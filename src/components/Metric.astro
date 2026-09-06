@@ -2,12 +2,13 @@
 type Props = {
   value: string;
   label: string;
+  variant?: "default" | "case-study";
 };
 
-const { value, label } = Astro.props;
+const { value, label, variant = "default" } = Astro.props;
 ---
 
-<article class="metric">
+<article class:list={["metric", `metric--${variant}`]}>
   <span class="metric__status">VERIFIED_SYSTEM</span>
   <strong>{value}</strong>
   <span class="metric__label">{label}</span>
@@ -41,5 +42,21 @@ const { value, label } = Astro.props;
     padding-bottom: var(--space-2);
     border-bottom: 2px solid var(--accent-default);
     color: var(--text-secondary);
+  }
+
+  .metric--case-study {
+    min-height: 154px;
+  }
+
+  .metric--case-study strong {
+    font-size: 3.5rem;
+    line-height: 1.07;
+    letter-spacing: -0.03rem;
+  }
+
+  .metric--case-study .metric__label {
+    font: 400 0.875rem / 1.5 var(--font-body);
+    letter-spacing: 0;
+    text-transform: uppercase;
   }
 </style>

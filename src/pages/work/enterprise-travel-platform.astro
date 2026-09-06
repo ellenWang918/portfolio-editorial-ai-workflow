@@ -1,0 +1,452 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import Metric from "../../components/Metric.astro";
+import PortfolioAction from "../../components/PortfolioAction.astro";
+import SystemLabel from "../../components/SystemLabel.astro";
+import CaseStudyMedia from "../../components/case-study/CaseStudyMedia.astro";
+import DecisionBlock from "../../components/case-study/DecisionBlock.astro";
+import EvidenceBlock from "../../components/case-study/EvidenceBlock.astro";
+import InsightCallout from "../../components/case-study/InsightCallout.astro";
+import SectionHeader from "../../components/case-study/SectionHeader.astro";
+import { enterpriseTravelPlatform as project } from "../../content/enterpriseTravelPlatform";
+
+const artwork = "/images/enterprise-travel-governance.png";
+---
+
+<SiteLayout
+  title="Enterprise Travel Platform — Ellen Wang"
+  description="A product design case study about rebuilding design-system consistency and delivery governance for a 6,000+ monthly-user enterprise platform."
+>
+  <header class="case-topbar">
+    <a href="/">Ellen Wang / Case Study</a>
+    <span class="desktop-only">Evidence / Insight / Decision / Outcome</span>
+    <span class="desktop-only">Desktop template / V0.1</span>
+    <span class="mobile-only">01 / 07</span>
+  </header>
+
+  <div class="case-shell">
+    <aside class="case-nav desktop-only" aria-label="Case study sections">
+      <a class="case-nav__title" href="#top">Case<br />Study.</a>
+      <nav>
+        <a class="active" href="#overview"><span>01.</span> ./overview</a>
+        <a href="#context"><span>02.</span> ./context</a>
+        <a href="#discovery"><span>03.</span> ./discovery</a>
+        <a href="#definition"><span>04.</span> ./definition</a>
+        <a href="#design"><span>05.</span> ./design</a>
+        <a href="#system"><span>06.</span> ./system</a>
+        <a href="#outcome"><span>07.</span> ./outcome</a>
+        <a href="#reflection"><span>08.</span> ./reflection</a>
+      </nav>
+      <a class="case-nav__back" href="/">← Portfolio home</a>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
+      <section class="project-header" id="top">
+        <SystemLabel tone="accent" class="case-label">Project_01 / Case Study</SystemLabel>
+        <h1>{project.title}</h1>
+        <p class="project-header__statement"><em>{project.statement}</em></p>
+        <CaseStudyMedia
+          src={artwork}
+          alt="Abstracted governance artwork showing a component library, linked system nodes, and geometric project fragments"
+          caption="System governance / Abstracted project artifact"
+          size="hero"
+          position="left"
+        />
+      </section>
+
+      <section class="case-section case-section--subtle" id="overview">
+        <SectionHeader
+          eyebrow="/** Overview / Scope **/"
+          title="Project overview"
+          description="Scope, ownership, and evidence boundaries."
+        />
+        <p class="case-lead">{project.summary}</p>
+        <dl class="meta-grid">
+          {project.meta.map(([label, value]) => (
+            <div><dt>{label}</dt><dd>{value}</dd></div>
+          ))}
+        </dl>
+      </section>
+
+      <section class="case-section desktop-only" id="context">
+        <SectionHeader
+          eyebrow="/** Context / Constraints **/"
+          title="Context and constraints"
+          description="Why visible inconsistency kept returning."
+        />
+        <p class="case-body-copy">
+          The platform had been developed for about two years. Two generations of UI remained live while designers, analysts, engineers, and testers relied on fragmented design references.
+        </p>
+        <div class="context-grid">
+          <article>
+            <SystemLabel tone="accent">Problem</SystemLabel>
+            <h3>Inconsistency was systemic</h3>
+            <p>The live product, shared library, and working files diverged. Designers applied different patterns, and front-end work could finish without formal design review.</p>
+          </article>
+          <article>
+            <SystemLabel tone="accent">Constraints</SystemLabel>
+            <h3>Operating constraints</h3>
+            <p>The team had to improve an active responsive product serving 6,000+ monthly users without disrupting ongoing delivery.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-section" id="discovery">
+        <SectionHeader
+          eyebrow="/** Discovery / Evidence **/"
+          title="What the audit revealed"
+          description="Evidence from the product, files, and delivery workflow."
+        />
+        <div class="evidence-grid">
+          {project.evidence.map((item) => <EvidenceBlock {...item} />)}
+        </div>
+        <div class="desktop-only">
+          <CaseStudyMedia
+            src={artwork}
+            alt="Abstracted audit artwork representing the design system, team, and delivery workflow"
+            caption="Audit evidence / System + team + delivery"
+            size="banner"
+            position="left"
+          />
+        </div>
+      </section>
+
+      <section class="case-section case-section--subtle" id="definition">
+        <SectionHeader
+          eyebrow="/** Definition / Decisions **/"
+          title="From audit to operating model"
+          description="The intervention followed the causes—not the visible symptom."
+        />
+        <InsightCallout
+          label="Core insight"
+          insight="Updating components alone would not prevent recurrence."
+          implication="Consistency depended on what the team used, how it maintained the system, and how implementation was checked."
+        />
+        <div class="mobile-only mobile-decision">
+          <DecisionBlock
+            label="Decision / Operating model"
+            decision="Intervene across Library, Governance, and Delivery as one connected quality system."
+            rationale="The audit showed that inconsistent assets, contribution behaviour, and missing implementation review reinforced one another."
+            constraint="Changes had to support ongoing delivery; efficiency and findability remained qualitative because time-on-task was not measured."
+          />
+        </div>
+        <p class="definition-opportunity desktop-only">
+          Opportunity: align reusable assets, contribution rules, and delivery checks around one source of truth—without disrupting an active product.
+        </p>
+      </section>
+
+      <section class="case-section desktop-only" id="design">
+        <SectionHeader
+          eyebrow="/** Design / Decisions **/"
+          title="One intervention, three layers"
+          description="Each design move addressed a documented cause of inconsistency."
+        />
+        <DecisionBlock
+          label="Decision 01 / Operating model"
+          decision="Intervene across Library, Governance, and Delivery as one connected quality system."
+          rationale="The audit showed that inconsistent assets, contribution behaviour, and missing implementation review reinforced one another."
+          constraint="Changes had to support ongoing delivery and multiple consumers; efficiency and findability remained qualitative because time-on-task was not measured."
+        />
+        <div class="iteration-grid">
+          <CaseStudyMedia
+            src={artwork}
+            alt="Abstracted component-only operating model iteration"
+            caption="Iteration A / Component-only model"
+            size="iteration"
+            position="left"
+          />
+          <CaseStudyMedia
+            src={artwork}
+            alt="Abstracted connected design-system operating model iteration"
+            caption="Iteration B / Connected operating model"
+            size="iteration"
+            position="right"
+          />
+        </div>
+      </section>
+
+      <section class="case-section case-section--subtle desktop-only" id="system">
+        <SectionHeader
+          eyebrow="/** System / Scale **/"
+          title="Systemising quality"
+          description="Assets, governance, and delivery controls reinforced one another."
+        />
+        <p class="case-body-copy">
+          I rebuilt reusable components with atomic-design principles, defined contribution rules, documented responsive and accessible use, created a navigable page library, and embedded designer approval into front-end delivery.
+        </p>
+        <div class="metric-grid">
+          {project.systemMetrics.map(([value, label]) => <Metric value={value} label={label} variant="case-study" />)}
+        </div>
+        <CaseStudyMedia
+          src={artwork}
+          alt="Abstracted operating model connecting library, governance, and delivery"
+          caption="Library / Governance / Delivery operating model"
+          size="banner"
+          position="left"
+        />
+      </section>
+
+      <section class="case-section" id="outcome">
+        <SectionHeader
+          eyebrow="/** Outcome / Evidence **/"
+          title="Observed outcomes"
+          description="Verified results separated from qualitative signals."
+        />
+        <div class="metric-grid">
+          {project.outcomeMetrics.map(([value, label]) => <Metric value={value} label={label} variant="case-study" />)}
+        </div>
+        <EvidenceBlock
+          label="Outcome evidence / Observed period"
+          evidence="The updated component library reached 100% adoption within the design team. After the review gate was introduced, no further design-to-build misalignment was reported during the observed period."
+          detail="Efficiency and findability improved qualitatively; no time-on-task study or business-impact metric was collected."
+        />
+      </section>
+
+      <section class="case-section case-section--subtle" id="reflection">
+        <SectionHeader
+          eyebrow="/** Reflection / Next **/"
+          title="What changed in my practice"
+          description="Consistency is maintained through behaviour and checks—not assets alone."
+        />
+        <InsightCallout
+          label="Reflection"
+          insight="A component library can standardise assets, but governance and delivery checks are what standardise outcomes."
+          implication="I now frame design-system work as a product-quality operating model: shared assets, clear ownership, discoverable guidance, and an explicit verification loop."
+        />
+        <p class="case-body-copy desktop-only">
+          Next measurement: time to locate approved designs, time to compose screens from shared components, and implementation issues caught at review.
+        </p>
+      </section>
+
+      <footer class="next-project desktop-only">
+        <SystemLabel tone="inverse">Case Study Complete / Continue</SystemLabel>
+        <h2>Continuous Improvement Platform</h2>
+        <p>How workplace observation became a feasible, testable Kanban MVP.</p>
+        <PortfolioAction href="/#project-02" label="View next case study" />
+        <div class="case-status"><span>Ready for review</span><span>Verified content / Public-safe abstraction</span></div>
+      </footer>
+
+      <footer class="mobile-case-status mobile-only">
+        <span>Case study / Mobile validated</span>
+        <span>Verified content · Public-safe abstraction</span>
+      </footer>
+    </main>
+  </div>
+</SiteLayout>
+
+<style>
+  .case-topbar {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 var(--space-4);
+    border-bottom: var(--border-1) solid var(--border-subtle);
+    background: var(--surface-canvas);
+    font: 500 var(--type-label) / 1.45 var(--font-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  :global(html) { scrollbar-width: none; }
+  :global(html::-webkit-scrollbar) { display: none; }
+
+  .case-topbar a { color: var(--text-primary); text-decoration: none; }
+  .case-topbar span:nth-child(2) { color: var(--text-accent); }
+  .case-shell { display: grid; grid-template-columns: 232px minmax(0, 1fr); }
+
+  .case-nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: var(--space-8) var(--space-3) var(--space-5);
+    border-right: var(--border-1) solid var(--border-subtle);
+    background: var(--surface-canvas);
+  }
+
+  .case-nav__title {
+    color: var(--text-primary);
+    font: 400 2.5rem / 1.1 var(--font-display);
+    letter-spacing: -0.016rem;
+    text-decoration: none;
+  }
+
+  .case-nav nav { display: grid; gap: var(--space-2); margin-top: var(--space-8); }
+  .case-nav nav a {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    padding: var(--space-2) 0;
+    color: var(--text-secondary);
+    font: 400 var(--type-label) / 1.45 var(--font-mono);
+    text-decoration: none;
+  }
+  .case-nav nav a.active { color: var(--text-accent); }
+  .case-nav__back {
+    margin-top: auto;
+    color: var(--text-primary);
+    font: 500 var(--type-label) / 1.45 var(--font-mono);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  main { min-width: 0; }
+  .project-header,
+  .case-section,
+  .next-project { padding: var(--space-10); }
+
+  .project-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .project-header > :global(.case-label) {
+    align-self: flex-start;
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .project-header h1 {
+    margin: var(--space-8) 0 0;
+    font: 400 4.5rem / 1.055 var(--font-display);
+    letter-spacing: -0.03rem;
+  }
+
+  .project-header__statement {
+    max-width: 54rem;
+    margin: var(--space-8) 0 0;
+    font: 400 3.5rem / 1.07 var(--font-display);
+    letter-spacing: -0.03rem;
+  }
+
+  .project-header > :global(.case-media) { margin-top: var(--space-8); }
+
+  .case-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .case-section--subtle { background: var(--surface-subtle); }
+  .case-lead,
+  .case-body-copy,
+  .definition-opportunity {
+    max-width: 56rem;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .meta-grid,
+  .context-grid,
+  .evidence-grid,
+  .iteration-grid,
+  .metric-grid { display: grid; gap: var(--space-5); }
+
+  .meta-grid { grid-template-columns: repeat(2, 1fr); margin: 0; }
+  .meta-grid div {
+    padding: var(--space-4);
+    border: var(--border-1) solid var(--border-subtle);
+    background: var(--surface-canvas);
+  }
+  dt {
+    margin-bottom: var(--space-2);
+    color: var(--text-accent);
+    font: 500 0.625rem / 1.5 var(--font-mono);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  dd { margin: 0; font-size: 1rem; }
+
+  .context-grid,
+  .evidence-grid,
+  .iteration-grid { grid-template-columns: repeat(2, 1fr); }
+  .context-grid article { padding: var(--space-5); background: var(--surface-subtle); }
+  .context-grid h3 { margin: var(--space-3) 0; font: 400 1.875rem / 1.2 var(--font-display); }
+  .context-grid p { margin: 0; color: var(--text-secondary); font-size: 0.875rem; line-height: 1.5; }
+  .metric-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .next-project {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    color: var(--text-inverse);
+    background: var(--surface-inverse);
+  }
+  .next-project h2 { margin: 0; font: 400 3.5rem / 1.07 var(--font-display); }
+  .next-project > p { margin: 0; color: var(--text-inverse-muted); }
+  .next-project :global(.portfolio-action) { color: var(--text-inverse); }
+  .case-status {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-4);
+    border: var(--border-1) solid var(--border-default);
+    font: 500 var(--type-label) / 1.45 var(--font-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    #overview { min-height: 650px; }
+    #context { min-height: 608px; }
+    #discovery { min-height: 831px; }
+    #definition { min-height: 710px; }
+    #design { min-height: 1007px; }
+    #system { min-height: 874px; }
+    #outcome { min-height: 738px; }
+    #reflection { min-height: 666px; }
+    .next-project { min-height: 522px; }
+  }
+
+  @media (max-width: 767px) {
+    .case-topbar { padding: 0 var(--space-4); }
+    .case-topbar .mobile-only { display: block; color: var(--text-accent); }
+    .case-shell { display: block; }
+    .project-header,
+    .case-section { padding: var(--space-8) var(--space-5); }
+    .project-header { gap: var(--space-5); padding-top: 3.5rem; }
+    .project-header h1 { margin: 0; font-size: 2.5rem; line-height: 1.1; }
+    .project-header__statement {
+      margin: 0;
+      font-size: 3.5rem;
+      line-height: 1.07;
+      letter-spacing: -0.03rem;
+    }
+    .project-header > :global(.case-media) { margin-top: 0; }
+    .case-section { gap: var(--space-5); }
+    .case-lead { font-size: 1rem; }
+    .meta-grid { display: block; }
+    .meta-grid div { padding: 0; border: 0; background: transparent; }
+    .meta-grid dt,
+    .meta-grid dd {
+      display: inline;
+      font: 500 0.625rem / 1.5 var(--font-mono);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .meta-grid dt::after { content: " / "; }
+    .meta-grid dd::after { content: "\A"; white-space: pre; }
+    .evidence-grid,
+    .metric-grid { grid-template-columns: 1fr; }
+    .mobile-decision { margin-top: 0; }
+    .mobile-case-status {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      padding: var(--space-3) var(--space-4);
+      color: var(--text-inverse);
+      background: var(--surface-inverse);
+      font: 500 var(--type-label) / 1.45 var(--font-mono);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1100px) {
+    .project-header,
+    .case-section,
+    .next-project { padding: var(--space-8); }
+  }
+</style>

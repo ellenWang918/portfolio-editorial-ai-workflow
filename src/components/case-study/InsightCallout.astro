@@ -1,0 +1,51 @@
+---
+type Props = {
+  label: string;
+  insight: string;
+  implication: string;
+};
+
+const { label, insight, implication } = Astro.props;
+---
+
+<article class="insight-callout">
+  <span>{label}</span>
+  <h3>{insight}</h3>
+  <p>{implication}</p>
+</article>
+
+<style>
+  .insight-callout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    border: var(--border-1) solid var(--border-strong);
+    color: var(--text-inverse);
+    background: var(--surface-inverse);
+  }
+
+  span {
+    color: var(--text-accent);
+    font: 500 var(--type-label) / 1.45 var(--font-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    max-width: 58rem;
+    margin: 0;
+    font: 400 1.875rem / 1.2 var(--font-display);
+  }
+
+  p {
+    max-width: 58rem;
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 767px) {
+    .insight-callout { padding: var(--space-6); }
+  }
+</style>

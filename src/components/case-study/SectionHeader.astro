@@ -1,0 +1,43 @@
+---
+import SystemLabel from "../SystemLabel.astro";
+
+type Props = {
+  eyebrow: string;
+  title: string;
+  description: string;
+};
+
+const { eyebrow, title, description } = Astro.props;
+---
+
+<header class="case-section-header">
+  <SystemLabel tone="accent">{eyebrow}</SystemLabel>
+  <h2>{title}</h2>
+  <p>{description}</p>
+</header>
+
+<style>
+  .case-section-header {
+    width: 100%;
+    padding-bottom: var(--space-5);
+    border-bottom: var(--border-1) solid var(--border-subtle);
+    background: var(--surface-canvas);
+  }
+
+  h2 {
+    margin: var(--space-3) 0 var(--space-2);
+    font: 400 2.5rem / 1.1 var(--font-display);
+    letter-spacing: -0.016rem;
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 767px) {
+    h2 { font-size: 2.5rem; }
+  }
+</style>
