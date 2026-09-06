@@ -1,57 +1,144 @@
-# Editorial Portfolio × Codex Workflow
+# Ellen Wang — Product Design Portfolio
 
-This is a Product Designer portfolio experiment created with assistance from Codex. The project focuses not only on the final website, but also documents the complete process—from visual direction, information architecture, and design systems to Figma screens and responsive frontend implementation—along with the token-consumption problem encountered during a long, tool-intensive workflow.
+A personal portfolio exploring how research, design systems, and delivery decisions bring clarity to complex enterprise products. Built with Astro and TypeScript, with a warm editorial visual style and responsive layouts.
 
-## Project Goal
+## About the project
 
-The goal was to create an editorial yet systematic personal portfolio that helps recruiters quickly understand the designer's positioning, selected work, and way of thinking. The project also needed to keep all published content safe, maintain consistent design rules, and support a reliable transition from Figma to production code.
+The portfolio introduces my work across product design, UX/UI, service design, and design-system governance. It brings selected projects, my design approach, and contact information into one site.
 
-The final direction is **Warm Technical Editorial**:
+This repository also captures an experiment in AI-assisted design and implementation: moving from visual references and information architecture through Figma foundations, reusable components, and frontend development with Codex.
 
-- Instrument Serif provides editorial character and expressive headings.
-- IBM Plex Sans keeps body content highly readable.
-- IBM Plex Mono is used for navigation, numbering, status, and system language.
-- A warm paper background is paired with near-black text, rust-red accents, and amber status colours.
-- Grids, fine dividers, and deliberate whitespace establish hierarchy without excessive card-based UI.
-- Company names, system names, and screenshots are sanitised for public presentation.
-- Figma [link](https://www.figma.com/design/22FW0RNCPZkGPtH8iIBLd2/Portfolio?node-id=0-1&t=stUGPE3vZ9OWjLt0-1)
+## Project goal
 
-The current implementation includes a responsive homepage with desktop and mobile layouts, a mobile menu, anchor navigation, keyboard focus states, reduced-motion support, and semantic content structure.
+The goal was to create a distinctive but recruiter-friendly Product Designer portfolio that:
 
-## Technology Stack
+- communicates positioning and selected work within seconds;
+- makes design reasoning visible through Evidence → Insight → Decision → Design → Outcome;
+- turns one visual direction into a reusable design system and responsive codebase;
+- separates public-safe evidence from confidential source material;
+- documents the strengths and costs of a long, approval-gated AI design workflow.
 
-- Astro
-- TypeScript
-- Native CSS with semantic design tokens
-- Self-hosted Instrument Serif, IBM Plex Sans, and IBM Plex Mono
-- Phosphor Icons
+## Current pages
 
-## Skills Used
+| Page | Status |
+| --- | --- |
+| Homepage (`/`) | Selected work, profile, experience summary, and contact section |
+| Enterprise Travel Platform (`/work/enterprise-travel-platform/`) | Dedicated case study covering context, research, decisions, design systems, outcomes, and reflection |
+| Continuous Improvement Platform | Homepage summary; dedicated case study planned |
+| Digital Checklist Discovery | Homepage summary; dedicated case study planned |
+
+## Design direction
+
+**Warm Technical Editorial** combines expressive typography with the structure of a technical document:
+
+- Warm paper backgrounds, near-black text, and rust-red accents.
+- Instrument Serif for editorial headings.
+- IBM Plex Sans for body text and IBM Plex Mono for navigation and metadata.
+- Fine dividers, generous whitespace, and a consistent grid.
+- Reusable components and shared CSS design tokens.
+
+The implementation includes mobile navigation, section anchors, a skip-to-content link, keyboard focus styles, and reduced-motion support.
+
+Approved design source: [Portfolio Figma file](https://www.figma.com/design/22FW0RNCPZkGPtH8iIBLd2/Portfolio?node-id=0-1&t=stUGPE3vZ9OWjLt0-1).
+
+## Built with
+
+- **Astro** — static pages and reusable components.
+- **TypeScript** — structured project and case-study content.
+- **CSS** — shared design tokens and responsive layouts.
+- **Fontsource** — self-hosted fonts.
+- **Phosphor Icons** — interface icons.
+
+## Skills used
 
 | Skill | Purpose |
-|---|---|
-| `portfolio-editorial-ai-workflow` | The primary gated workflow, defining approval points across Visual DNA → IA → Design System → Homepage → Case Study → Responsive → Implementation. |
-| `figma-use` | Created and maintained variables, text styles, components, pages, and responsive layouts in Figma. |
-| `product-design:image-to-code` | Implemented approved desktop and mobile visual designs as a responsive frontend. |
-| `browser:control-in-app-browser` | Validated the page, navigation, mobile menu, responsive breakpoints, and console behaviour in a real browser. |
-| `openai-docs` | Verified guidance related to long context, reasoning tokens, and compaction. |
+| --- | --- |
+| `portfolio-editorial-ai-workflow` | Defined the gated Visual DNA → IA → system → page → implementation process and required explicit approval at each phase. |
+| `figma-use` | Created and inspected variables, text styles, components, pages, and responsive compositions in Figma. |
+| `figma-design-to-code` | Translated approved Figma frames into implementation context without redesigning them in code. |
+| `product-design:image-to-code` | Implemented the approved desktop and mobile designs as a responsive Astro website. |
+| `product-design:design-qa` | Compared approved visual sources and browser-rendered pages, then blocked handoff until important mismatches were fixed. |
+| `browser:control-in-app-browser` | Tested navigation, responsive breakpoints, accessibility behavior, image delivery, error states, and console output. |
+| `openai-docs` | Informed the investigation into long context, compaction, and token-heavy tool workflows. |
+
+## Run locally
+
+Requirements: **Node.js 22.12.0 or later** and **npm 9.6.5 or later**, matching the installed Astro package requirements.
+
+From the repository folder:
+
+```sh
+npm ci
+npm run dev
+```
+
+Open the local URL printed in the terminal, usually `http://localhost:4321`.
+
+| Command | Purpose |
+| --- | --- |
+| `npm ci` | Install dependencies from the lockfile |
+| `npm run dev` | Start the development server |
+| `npm run build` | Generate the static site in `dist/` |
+| `npm run preview` | Preview the production build locally |
+
+To check the production version:
+
+```sh
+npm run build
+npm run preview
+```
+
+## Project structure
+
+```text
+public/
+  favicon.svg                     Browser icon
+  robots.txt                      Search crawler rules
+  images/                         Case-study artwork and optimised WebP
+src/
+  components/                     Shared portfolio components
+    case-study/                   Case-study presentation components
+  content/
+    projects.ts                   Homepage project summaries
+    enterpriseTravelPlatform.ts   Detailed case-study content
+  layouts/
+    SiteLayout.astro              Shared metadata, fonts, and page shell
+  pages/
+    404.astro                     Branded error page
+    index.astro                   Homepage
+    work/
+      enterprise-travel-platform.astro
+  styles/
+    global.css                    Design tokens and responsive styles
+astro.config.mjs                   Static-site configuration
+```
+
+## Update the portfolio
+
+- Edit `src/content/projects.ts` to update selected-work summaries and links.
+- Edit `src/content/enterpriseTravelPlatform.ts` to update the existing case study.
+- Edit `src/pages/index.astro` to update the profile and contact sections.
+- Adjust `src/styles/global.css` to change typography, colours, spacing, and layouts.
+- Add artwork to `public/images/` and reference it with an `/images/` path.
+
+New case-study pages belong in `src/pages/work/`. Reuse the shared case-study components and update the corresponding homepage project link.
 
 ## Phases 1–10
 
-| Phase | Stage | Goal and Deliverable |
-|---:|---|---|
-| 1 | Visual DNA | Analyse the references for mood, typographic roles, colour, grid, spacing, system language, and patterns to adopt or avoid. |
-| 2 | Information Architecture | Define the hierarchy of the homepage, Selected Work, About, Contact, and case-study pages, using an Evidence → Insight → Decision → Design → Outcome narrative. |
-| 3 | Foundations | Establish semantic colours, typography, spacing, radii, borders, and a desktop grid in Figma to form a minimal design system. |
-| 4 | Core Components | Create portfolio components including System Label, Action, Navigation Item, Metadata, Metric, Section Header, Status Bar, and Media Frame. |
-| 5 | Homepage V0.1 | Build the desktop homepage with real, public-safe content and verify that the design system produces a coherent visual language. |
-| 6 | Case Study Template | Create a reusable case-study template covering Context, Discovery, Definition, Design, System, Outcome, and Reflection. |
-| 7 | Real Case Study | Map real Enterprise Travel Platform material into the template, distinguishing content to retain, strengthen, remove, source, or keep confidential. |
-| 8 | Responsive Validation | Recompose the desktop hierarchy for mobile instead of simply scaling it down, completing key homepage and case-study sections. |
-| 9 | Implementation Handoff | Map Figma tokens to CSS variables and design components to code components, then complete the responsive Astro homepage and browser QA. |
-| 10 | Scale | Extend the approved system across the remaining case studies, About, Contact, experiments, and production refinements. This repository currently reaches the Phase 9 homepage implementation. |
+| Phase | Stage | Goal and deliverable |
+| ---: | --- | --- |
+| 1 | Visual DNA | Analyse references for mood, typography, colour, grid, spacing, imagery, system language, and patterns to borrow or avoid. |
+| 2 | Information Architecture | Define the homepage hierarchy and the case-study narrative before styling every component. |
+| 3 | Foundations | Establish semantic colours, typography, spacing, borders, radii, and the desktop grid in Figma. |
+| 4 | Core Components | Build portfolio-specific components such as labels, actions, navigation items, metadata, metrics, media frames, and section headers. |
+| 5 | Homepage V0.1 | Test the system with a complete desktop homepage using real, public-safe content. |
+| 6 | Case-study Template | Create a reusable Evidence → Insight → Decision → Design → Outcome storytelling framework. |
+| 7 | Real Case Study | Populate the template with the Enterprise Travel Platform project while separating verified, qualitative, missing, and confidential evidence. |
+| 8 | Responsive Validation | Recompose the homepage and key case-study sections for mobile instead of merely shrinking the desktop layout. |
+| 9 | Implementation Handoff | Map Figma tokens and components to Astro, TypeScript, and semantic CSS; build and approve the homepage and first case study. |
+| 10 | Production Polish | Add metadata, favicon, robots rules, an error page, honest unpublished-project states, accessibility fixes, asset optimisation, dependency pinning, and final browser QA. |
 
-## Original Workflow
+## Original workflow
 
 ```mermaid
 flowchart TD
@@ -59,11 +146,11 @@ flowchart TD
     P2 --> P3[Phase 3<br/>Foundations]
     P3 --> P4[Phase 4<br/>Core Components]
     P4 --> P5[Phase 5<br/>Homepage V0.1]
-    P5 --> P6[Phase 6<br/>Case Study Template]
+    P5 --> P6[Phase 6<br/>Case-study Template]
     P6 --> P7[Phase 7<br/>Real Case Study]
     P7 --> P8[Phase 8<br/>Responsive Validation]
-    P8 --> P9[Phase 9<br/>Implementation Handoff]
-    P9 --> P10[Phase 10<br/>Scale Remaining Portfolio]
+    P8 --> P9[Phase 9<br/>Implementation]
+    P9 --> P10[Phase 10<br/>Production Polish]
 
     P1 -. approval .-> P2
     P3 -. approval .-> P4
@@ -72,73 +159,63 @@ flowchart TD
     P9 -. approval .-> P10
 ```
 
-Every phase required inspection, generation, screenshots, explanation, and human approval. This improved control, but also became a major source of token cost.
+Every phase required inspection, production, screenshots, explanation, and human approval. This provided strong control over design drift, but it also became the main source of workflow overhead.
 
-## Problem: Extremely High Token Consumption
+## Problem: extremely high token consumption
 
-The project progressed successfully, but token usage was far higher than expected. Even after reducing output, narrowing inspection scope, and introducing a workflow-state file, total consumption remained substantial.
+Token usage was much higher than expected. Reducing response length, narrowing inspections, and storing workflow state helped, but the overall consumption remained substantial.
 
-### Why It Happened
+### Why the problem occurred
 
-1. **Too many phases:** Ten phases created ten rounds of context continuation, delivery notes, screenshots, and approvals. Information from early stages continued to accumulate in later contexts.
-2. **Figma was introduced too early:** Before the overall direction was settled, Codex had to read pages, locate node IDs, inspect variables, create components, capture screenshots, and make repeated corrections.
-3. **Figma operations are context-intensive:** Each write depends on existing nodes, component properties, variable IDs, fonts, and layout information, so tool output grows quickly.
-4. **Approval gates were too granular:** Gates reduced design drift, but every pause and continuation required the current state to be reconstructed.
-5. **Visual QA was expensive:** Desktop, mobile, case-study, and implementation views all required screenshots, structural checks, privacy checks, and comparison-based fixes.
-6. **The same facts appeared in multiple formats:** Figma, PNG exports, handover documents, state JSON, chat history, and code repeated overlapping information.
-7. **Long-running tool use accumulated context:** Official OpenAI guidance identifies multi-step, tool-heavy work as a typical long-context and compaction scenario, and recommends compacting at major milestones instead of preserving every detail in every turn. See [OpenAI model guidance](https://developers.openai.com/api/docs/guides/latest-model).
+1. **Too many phases.** Ten stages created repeated context reconstruction, delivery notes, screenshots, and approval turns.
+2. **Figma was introduced too early.** Codex had to inspect nodes, variables, styles, component properties, and page structure before the visual direction was fully settled.
+3. **Figma operations produce large context.** Even small changes depend on node IDs, variable IDs, layout data, fonts, and existing component structure.
+4. **Approval gates were too granular.** Gates reduced drift, but each pause required the workflow state and prior decisions to be loaded again.
+5. **Visual QA was expensive.** Desktop, mobile, homepage, case-study, and production states all required captures and comparison-based iteration.
+6. **The same facts were repeated.** Chat history, Figma, PNG exports, handover notes, state JSON, and code frequently carried overlapping information.
+7. **Long tool-heavy sessions accumulated context.** Repeated inspection and output remained in the working context even when only a small subset was needed for the next decision.
 
-## Solutions Applied
+## Solutions applied
 
-- Stored pages, node IDs, components, and approval status in a compact workflow-state JSON file.
-- Read only the files and nodes required for the active phase.
-- Limited tool output instead of repeatedly exporting the entire Figma structure.
-- Restricted visual inspection to critical frames and breakpoints.
-- Used semantic tokens to avoid reinterpreting colour and spacing between design and code.
-- Produced handover documents at milestones so later work could continue from a compact state.
-- Shortened progress updates and concentrated browser validation in the final implementation phase.
+- Stored page IDs, component IDs, approval status, and pending validations in a compact workflow-state file.
+- Read only the source files and Figma nodes needed for the active phase.
+- Limited screenshot and structural inspection to critical frames, regions, and breakpoints.
+- Reused semantic tokens so visual rules did not need to be reinterpreted between Figma and code.
+- Created milestone handovers to make continuation more compact and reliable.
+- Used focused source-versus-implementation comparison images instead of repeatedly re-reading full pages.
+- Consolidated responsive and production checks into fewer browser passes.
 
-These changes reduced waste, but did not solve the structural issue: the workflow still contained too many phases, while Figma continued to serve three roles at once—early exploration, rules database, and final production surface.
+These changes reduced waste, but they did not remove the structural cause: the workflow still had too many phases, and Figma was being used simultaneously for exploration, rule definition, page generation, and review.
 
 ## Reflection
 
-Token consumption remained high even after these improvements. Further research and reflection suggested that the better solution was not to keep compressing each phase, but to redesign the workflow itself.
+Token consumption remained high even after the workflow was improved. Further research suggested that the more effective solution is to redesign the process rather than continue compressing each individual phase.
 
-A more efficient approach would be to:
+The next iteration should reduce the number of phases and avoid asking Codex to operate Figma at the beginning. Instead, it should first create a compact `design.md` containing the visual direction, information architecture, tokens, component rules, content hierarchy, and responsive principles. After that document is approved, the same source of truth can guide both the key screens and the frontend implementation.
 
-1. **Reduce the number of phases** by combining closely dependent activities.
-2. **Avoid asking Codex to operate Figma at the beginning.**
-3. First create a compact, reviewable `design.md` that defines the visual direction, content hierarchy, tokens, component rules, and responsive principles with text and a small number of images.
-4. After the user approves `design.md`, use it as the single source of truth for producing the key screens.
-5. Enter Figma only when human visual review is valuable, reducing node inspection, variable lookups, component construction, and repeated screenshots.
-6. Generate the code from the same `design.md`, avoiding another complete interpretation step between Figma and implementation.
+Figma would then become a focused visual-review surface rather than the place where the AI explores the direction, stores every rule, builds every component, and generates every page.
 
-## Proposed New Workflow
+## Proposed five-phase workflow
 
 ```mermaid
 flowchart LR
-    A[1. Content + References] --> B[2. design.md<br/>Visual direction + IA + Tokens]
+    A[1. Content + References] --> B[2. design.md<br/>Direction + IA + Tokens]
     B --> C{Approve once}
-    C --> D[3. Key screens<br/>Homepage + Case Study]
-    D --> E[4. Responsive + Code]
-    E --> F[5. QA + Scale]
+    C --> D[3. Key Screens<br/>Homepage + Case Study]
+    D --> E[4. Responsive Implementation]
+    E --> F[5. QA + Production Polish]
 ```
 
-The revised workflow compresses the original ten phases into five and makes `design.md` the shared source of truth for design and code. Figma is narrowed from an exploration tool, rules database, and page generator into a focused visual-review surface.
+This approach reduces repeated context, shortens approval chains, and gives design and code one shared source of truth. The proposed `design.md` is a lesson for the next iteration and is not currently included in this repository.
 
-## Run Locally
+## Publishing
 
-```bash
-npm install
-npm run dev
-```
+The project generates a static site. Use `npm run build` and publish the resulting `dist/` folder with a static hosting provider.
 
-Production build:
+The current implementation uses root-relative links and asset paths. Hosting under a GitHub Pages repository subpath requires configuring Astro's base path and updating those references before deployment. The final public domain and contact destination are intentionally left unconfigured rather than fabricated.
 
-```bash
-npm run build
-```
+## Project content
 
-## Privacy Note
+Public-facing case studies use sanitised project names and abstracted visuals. The `.gitignore` excludes private source documents, résumés, offline presentations, handover notes, and local review exports.
 
-This repository contains only public-safe project names, high-level outcomes, and the frontend implementation. Original employer and client names, internal system names, project codes, work links, sensitive screenshots, résumés, and offline presentation files are excluded from the public repository.
+Portfolio narratives and artwork represent personal project material. Third-party fonts, icons, and dependencies retain their respective licences.
